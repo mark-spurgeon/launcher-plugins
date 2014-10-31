@@ -1,0 +1,8 @@
+{
+	"name":"Mail [CONCEPT]",
+	"version":"0.0.1",
+	"author":"Mark Spurgeon <markspurgeon96@hotmail.com>",
+	"modules":[
+	"Jinja2"
+	]
+}
