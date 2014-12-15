@@ -1,7 +1,7 @@
 {
-	"name":"Duck Launcher Sample Plugin",
-	"version":"0.0.1",
-	"author":"Mark Spurgeon <markspurgeon96@hotmail.com>",
+	"name":"Duck Launcher Example Plugin",
+	"version":"0.1",
+	"author":"Mark Spurgeon <theduck.dev@gmail.com>",
 	"modules":[
 	"Jinja2"
 	]

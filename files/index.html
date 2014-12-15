@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Duck</title>
+    <style type="text/css">
+ 	::-webkit-scrollbar {
+		width:6px;
+		height:6px;
+	}
+	::-webkit-scrollbar-track {
+		background-color:transparent;
+		border-radius:2px;
+		margin-top:2px;
+	}
+	::-webkit-scrollbar-thumb {
+		-webkit-transition:background-color 0.3s;
+		background-color:rgba({{color[0]}},{{color[1]}},{{color[2]}},0.4);
+		border-radius:4px;
+	}
+	::-webkit-scrollbar-thumb:active {
+		background-color:rgba({{color[0]}},{{color[1]}},{{color[2]}},1);
+		border-radius:3px;
+	}
+    * {
+    	outline:none;
+    	-webkit-touch-callout: none;
+    	-webkit-user-select: none;
+    	-webkit-user-drag:none;
+    }
+    input[type="text"], textarea {
+     	-webkit-touch-callout: auto;
+    	-webkit-user-select: auto;   	
+    }
+    body {
+      margin-left:0;
+      margin-right:0;
+      margin-top:0;
+      padding:0;
+      font-family: "{{font}}", NamumGothic, Helvetica;
+      font-size:14px;
+      background-color:transparent;
+      color:white;
+    }
+    #header {
+    	-webkit-animation: new-anim 0.3s;
+     	position:fixed;
+    	top:0px;
+    	left:0px;
+    	right:0px;
+    	height:50px;
+    	background:rgba(255,255,255,0.03);
+    	border-style:solid;
+    	border-color:transparent;
+    	z-index: 10;
+
+    }
+    #header input {
+    	-webkit-transition:background-color 0.4s;
+    	position:absolute;
+    	top:0px;
+    	left:82px;
+    	right:0px;
+    	height:100%;
+    	margin-top:-2px;
+    	padding-left:5px;
+    	border-style:solid;
+    	border-radius:0px;
+    	border-width:1px;
+    	border-color:rgba(255,255,255,0.04);
+    	background-color:transparent;
+    	color:white;
+    	font-size: 16px;
+    }
+    #header input:hover {
+    	background-color:rgba(255,255,255,0.01);
+    }
+    #header input:focus {
+    	background-color:rgba(255,255,255,0.04);
+    }
+    #back {
+    	-webkit-transition:background-color 0.2s, border-bottom-color 0.2s;
+    	display: block;
+    	position:absolute;
+    	top:0px;
+    	left:0px;
+    	width:40px;
+    	height:54px;
+    	margin-top:-2px;
+    	background-color:transparent;
+        border-color:transparent;
+        border-bottom-style: solid;
+        border-width: 0px;
+        border-bottom-width: 3px;
+        border-bottom-color:transparent;
+    }
+    #home {
+        -webkit-transition:background-color 0.2s, border-bottom-color 0.2s;
+        display: block;
+        position:absolute;
+        top:0px;
+        left:40px;
+        width:40px;
+        height:54px;
+        margin-top:-2px;
+        background-color:transparent;
+        border-color:transparent;
+        border-style:solid;
+        border-bottom-style: solid;
+        border-width: 0px;
+        border-bottom-width: 3px;
+        border-bottom-color:transparent;
+    }
+    #header button:hover {
+    	background-color:rgba(255,255,255,0.02);
+    }
+    #header button:active {
+    	border-bottom-color: rgba({{color[0]}},{{color[1]}},{{color[2]}},1);
+    	background-color:rgba(255,255,255,0.05);
+    }
+
+    #icons {
+        -webkit-animation: new-anim 0.5s;
+    	overflow:auto;
+    	position:absolute;
+    	top:60px;
+    	bottom:20px;
+    	margin-left:25px;
+    	margin-right:5px;
+    }
+    .app {
+    	-webkit-transition:background-color 0.2s;
+    	margin:2px;
+    	display:block;
+    	width:80px;
+    	height:80px;
+    	padding:15px;
+    	float: left;
+    	font-size:10;
+    }
+    .app:hover {
+    	background-color:rgba(255,255,255,0.03);
+    }
+    .app:active {
+    	background-color:rgba(255,255,255,0.04);
+    }
+    .app-img {
+    	display:block;
+    	margin-left:auto;
+    	margin-right:auto;
+    	margin-top:0px;
+    	height:50px;
+
+    }
+    .app-title {
+    	display:block;
+    	overflow:hidden;
+    	height:50px;
+    	text-align:center;
+    	text-shadow:1px 1px rgba(40,40,40,0.4);
+    }
+    @-webkit-keyframes new-anim{
+        from {opacity:0;}
+        to{opacity:1;}
+    }
+    </style>
+    <script type="text/javascript">
+    function goBack(){
+        var oldpstring=document.getElementById("pathInput").value
+        var lastChar = oldpstring.substring(oldpstring.length - 1);
+        if (lastChar=="/"){
+
+            oldpstring=oldpstring.substring(0, oldpstring.length - 1);
+        }
+        var oldPath = oldpstring.split("/");
+        oldPath.pop();
+        if (oldPath.length>1){
+            var path = new String();
+            for (var i = 0; i<oldPath.length; i++){
+                path =path + oldPath[i] + "/";
+            }
+            Duck._filesGetFromPath(path);
+            document.getElementById("pathInput").value=path;
+        }
+    }
+    function getHomeFiles(){
+    	Duck._filesGetFromPath("HOME");
+    	document.getElementById("pathInput").value="{{path}}";
+    }
+    function setNewDir(path) {
+    	document.getElementById("pathInput").value=path;
+    	Duck._filesGetFromPath(path);
+    }
+    function setNewFiles(l){
+    	var ic = document.getElementById("icons");
+    	ic.innerHTML="";
+    	for (var i = 0; i<l.length; i++) {
+    		var d = document.createElement("a");
+    		d.className="app";
+    		d.id=l[i].whole_path;
+    		var img=document.createElement("img");
+    		img.src=l[i].icon;
+    		img.className="app-img";
+    		d.appendChild(img);
+    		var title=document.createElement("p");
+    		title.innerHTML=l[i].name;
+    		title.className="app-title";
+    		d.appendChild(title);
+            if (l[i].type=="directory"){
+                var func="setNewDir('"+l[i].whole_path+"');";
+            } else {
+                var func="Duck.sendData('openFile','"+l[i].whole_path+"');";
+            };
+            d.setAttribute("onclick",func );
+    		ic.appendChild(d);
+    	};
+    }
+    </script>
+  </head>
+  <body onload="getHomeFiles();">
+  <div id="header">
+    <button onclick="goBack();" id="back" title="Rewind"><img src="{{static}}chevron-left.svg" style="margin-top:5px;" width="18"></button>
+  	<button onclick="getHomeFiles();" id="home" title="Home"><img src="{{static}}user-home.svg" style="margin-top:4px;" width="18"></button>
+  	<input type="text" value="{{path}}" onchange="setNewDir(this.value)" id="pathInput"></input>
+  </div>
+  <div id="icons">
+  	
+  </div>
+
+  </body>
+</html>
