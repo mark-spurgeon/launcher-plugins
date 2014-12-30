@@ -3,6 +3,7 @@ sys.dont_write_bytecode=True
 from jinja2 import Template
 import os
 import notify2
+import webbrowser 
 #Search event
 def Search(query, color=None,font=None):
 	home=os.path.expanduser("~")
@@ -15,4 +16,5 @@ def Search(query, color=None,font=None):
 def onFormSubmit(elements):
 	pass
 def onDataSent(object, value):
-	pass
+	if object=="openFile":
+		webbrowser.open(value)
