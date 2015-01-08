@@ -4,8 +4,8 @@
     <title>Duck</title>
     <style type="text/css">
  	::-webkit-scrollbar {
-		width:6px;
-		height:6px;
+		width:3px;
+		height:3px;
 	}
 	::-webkit-scrollbar-track {
 		background-color:transparent;
@@ -14,12 +14,8 @@
 	}
 	::-webkit-scrollbar-thumb {
 		-webkit-transition:background-color 0.3s;
-		background-color:rgba({{color[0]}},{{color[1]}},{{color[2]}},0.4);
-		border-radius:4px;
-	}
-	::-webkit-scrollbar-thumb:active {
-		background-color:rgba({{color[0]}},{{color[1]}},{{color[2]}},1);
-		border-radius:3px;
+		background-color:rgb({{color[0]}},{{color[1]}},{{color[2]}});
+		border-radius:1px;
 	}
     * {
     	outline:none;
@@ -38,19 +34,20 @@
       padding:0;
       font-family: "{{font}}", NamumGothic, Helvetica;
       font-size:14px;
-      background-color:transparent;
-      color:white;
+      background-color:rgb(40,40,40);
+      color:#ffffff;
     }
     #header {
     	-webkit-animation: new-anim 0.3s;
      	position:fixed;
     	top:0px;
-    	left:0px;
-    	right:0px;
+    	left:21px;
+    	right:10px;
     	height:50px;
-    	background:rgba(255,255,255,0.03);
+    	background:#ffffff;
     	border-style:solid;
     	border-color:transparent;
+    	-webkit-box-shadow: 3px 3px 0px 0px rgb(179,179,179);
     	z-index: 10;
 
     }
@@ -67,17 +64,17 @@
     	border-radius:0px;
     	border-width:1px;
     	border-color:transparent;
-    	border-top-color:rgba(255,255,255,0.04);
-    	border-bottom-color:rgba(255,255,255,0.04);
+    	border-top-color:rgba(179,179,179,0.04);
+    	border-bottom-color:rgba(179,179,179,0.04);
     	background-color:transparent;
-    	color:white;
+    	color:#4b4b4b;
     	font-size: 16px;
     }
     #header input:hover {
-    	background-color:rgba(255,255,255,0.01);
+    	background-color:rgba(179,179,179,0.1);
     }
     #header input:focus {
-    	background-color:rgba(255,255,255,0.04);
+    	background-color:rgba(179,179,179,0.3);
     }
     #back {
     	-webkit-transition:background-color 0.2s, border-bottom-color 0.2s;
@@ -113,11 +110,12 @@
         border-bottom-color:transparent;
     }
     #header button:hover {
-    	background-color:rgba(255,255,255,0.02);
+    	border-bottom-color: rgba(179,179,179,0.6);
+    	background-color:rgba(179,179,179,0.2);
     }
     #header button:active {
-    	border-bottom-color: rgba({{color[0]}},{{color[1]}},{{color[2]}},1);
-    	background-color:rgba(255,255,255,0.05);
+    	border-bottom-color: rgb(179,179,179);
+    	background-color:rgba(179,179,179,0.4);
     }
 
     #icons {
@@ -126,6 +124,8 @@
     	position:absolute;
     	top:60px;
     	bottom:20px;
+    	right:5px;
+    	left:5px;
     	margin-left:25px;
     	margin-right:5px;
     }
@@ -175,7 +175,7 @@
         }
         var oldPath = oldpstring.split("/");
         oldPath.pop();
-        if (oldPath.length>1){
+        if (oldPath.length>2){
             var path = new String();
             for (var i = 0; i<oldPath.length; i++){
                 path =path + oldPath[i] + "/";

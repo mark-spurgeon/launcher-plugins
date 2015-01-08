@@ -38,7 +38,7 @@ def get_from_query(stuff,sec_key):
 				try:
 					art["thumbnail"]=d["response"]["content"]["fields"]["thumbnail"]
 				except KeyError:
-					art["thumnail"]=""
+					art["thumbnail"]="file:///usr/share/duck-launcher/plugins/guardian/thumbnail.png"
 				try:
 					art["section"]=d["response"]["content"]["sectionName"]
 				except KeyError:

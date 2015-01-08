@@ -10,7 +10,7 @@ def Search(query, color=None,font=None):
 	static="/usr/share/duck-launcher/plugins/files/"
 	s = str(open("{}index.html".format(static),"r").read())
 	t=Template(s)
-	return t.render(path=home,color=color,font=font,static="file://{}".format(static))
+	return t.render(path=home,color=(255,255,255),font=font,static="file://{}".format(static))
 
 #JS function events
 def onFormSubmit(elements):
