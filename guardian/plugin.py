@@ -68,7 +68,14 @@ def Search(query, color=None,font=None):
 	ciphertext=open("{}sec_key.txt".format(static),"r")
 	sec_key= obj2.decrypt(ciphertext.read()).replace("87654321","")
 	ciphertext.close()
-	s = str(open("{}guardian.html".format(static),"r").read())
 	q=get_from_query(query,sec_key)
-	t=Template(s)
-	return t.render(articles=q,color=color,font=font,static="file://{}".format(static))
+	if q!=None:
+		s = open("{}guardian.html".format(static),"r")
+		t=Template(str(s.read()))
+		s.close()
+		return t.render(articles=q,color=color,font=font,static="file://{}".format(static))
+	else:
+		s = open("{}guardian-error.html".format(static),"r")
+		st=s.read()
+		s.close()
+		return str(st)

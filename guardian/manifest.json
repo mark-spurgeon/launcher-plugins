@@ -1,11 +1,11 @@
 {
 	"name":"Guardian",
-	"version":"0.1",
+	"version":"0.2",
 	"author":"Mark Spurgeon <theduck.dev@gmail.com>",
 	"modules":[
 	"Jinja2",
 	"PyCrypto"
 	],
-	"background-color":"#005689",
-	"foreground-color":"#ffffff"
+	"background-color":"#f5f5f5",
+	"foreground-color":"#005689"
 }
