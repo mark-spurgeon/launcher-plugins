@@ -3,6 +3,7 @@ from jinja2 import Template
 import os
 import webbrowser
 import urllib2
+import traceback
 try:
 	import simplejson as json
 except ImportError:
@@ -55,10 +56,10 @@ def get_from_query(stuff,sec_key):
 				all_articles.append(art)
 		return all_articles
 	except urllib2.URLError:
-		print sys.exc_info()[0]
+		print traceback.print_exc()
 		return None
 	except urllib2.HTTPError:
-		print sys.exc_info()[0]
+		print traceback.print_exc()
 		return None
 	#returns [{'title':'..', 'url':'..','thumbnail':'..','section':'..',}]
 def Search(query, color=None,font=None):
