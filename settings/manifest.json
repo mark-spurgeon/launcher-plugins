@@ -5,6 +5,6 @@
 	"modules":[
 	"Jinja2"
 	],
-	"background-color":"rgb(40,40,40)",
+	"background-color":"rgb(30,30,30)",
 	"foreground-color":"#ffffff"
 }
