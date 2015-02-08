@@ -1,6 +1,6 @@
 {
 	"name":"The Guardian",
-	"version":"0.2",
+	"version":"0.3",
 	"author":"Mark Spurgeon <theduck.dev@gmail.com>",
 	"modules":[
 	"Jinja2",
