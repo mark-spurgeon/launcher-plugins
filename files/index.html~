@@ -47,7 +47,7 @@
     	background:#ffffff;
     	border-style:solid;
     	border-color:transparent;
-    	-webkit-box-shadow: 3px 3px 0px 0px rgb(170,170,170);
+    	-webkit-box-shadow: 3px 3px 0px 0px rgb(100,100,100);
     	z-index: 10;
 
     }
