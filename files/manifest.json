@@ -1,5 +1,6 @@
 {
 	"name":"Files",
+	"description":"Browse your files and folders directly from Duck Launcher.",
 	"version":"0.5",
 	"author":"Mark Spurgeon <theduck.dev@gmail.com>",
 	"modules":[

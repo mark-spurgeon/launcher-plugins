@@ -1,5 +1,6 @@
 {
 	"name":"Duck Launcher - Sample",
+	"description":"A silly and useless plugin.",
 	"version":"0.1",
 	"author":"Mark Spurgeon <theduck.dev@gmail.com>",
 	"modules":[

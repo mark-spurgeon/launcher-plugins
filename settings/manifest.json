@@ -1,5 +1,6 @@
 {
 	"name":"Settings",
+	"description":"A concept of what could be Duck Launcher's settings.",
 	"version":"0.4",
 	"author":"Mark Spurgeon <theduck.dev@gmail.com>",
 	"modules":[

@@ -1,5 +1,6 @@
 {
 	"name":"The Guardian",
+	"description":"Get the latest news from the Guardian.",
 	"version":"0.3",
 	"author":"Mark Spurgeon <theduck.dev@gmail.com>",
 	"modules":[
